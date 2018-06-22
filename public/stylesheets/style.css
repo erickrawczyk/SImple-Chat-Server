@@ -20,6 +20,7 @@ body {
 
 .navbar-inner, .navbar-inner .container {
 	background: white;
+	box-shadow: none;
 }
 
 .navbar-inner .brand {
