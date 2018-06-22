@@ -13,6 +13,12 @@ Then share that URL with your friend so that they can join your room.
 1. `npm install`
 2. `npm start`
 
+**Deployment**
+1. Ensure you have access to `spartannomadlist-chat` on heroku
+2. Login to `heroku-cli`
+4. Add `spartannomadlist-chat` as a git remote
+3. Run `git push heroku master`
+
 **API**
 - `/` - shows a landing page for the chat
 - `/:slug` - any arbitrary slug will create a new chatroom that people can join
