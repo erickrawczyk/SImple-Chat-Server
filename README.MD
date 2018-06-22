@@ -5,30 +5,20 @@ It can be anything you want
 eg: chat.techcentroid.com/123
 Then share that URL with your friend so that they can join your room.
 
-**How to use:**
-1. You must have node and npm installed
-2. Download the source then in terminal type npm install to install the dependencies.
-3. Then type node app.js to run the app
-4. Go to localhost:3000/unique+id
-eg http://localhost:3000/12
-12 is the dynamic room which you've created, similarly you can create any number of rooms when someone visits http://localhost:3000/12 they'll get connected to your room i.e 12
+**Environment Requirements**
+1. Node (version 0.9.5 because this repo old af)
+2. npm (version >2, caveats below)
 
+**Running a development environment**
+1. `npm install`
+2. `npm start`
 
-**Features**
-* Dynamic Chat Rooms
-* Users online in a chat room
-* Mobile Support (iPhone, iPad - mobile webkit tested)
+**API**
+- `/` - shows a landing page for the chat
+- `/:slug` - any arbitrary slug will create a new chatroom that people can join
 
-
-**TODO:**
-* Delete the room from the array when no users are online
-* Create a admin interface to view all the users connected and active rooms
-* Create a index page that allows random generation of unique urls
-
-**NOTE: Security Issue**
-here is no guarantee or warranty associated with this software and if there are any security loop holes then I am not responsible.
-A possible implementation to solve this problem would be to remove socket.emit("adduser"), and storing the username in the client session storage and allow the server to fetch the username from the session storage (or a cookie).
-
-Another problem is when the user sends message, it directly calls the server, to prevent this we can send the message as "post" to a specific url and the server can fetch the message from the response.
-
-I am working on another project right now otherwise I'd have fixed it myself, but I'll fix it in couple of days.
+**Caveats**
+This was a fork of a 6+ year old repo so some things are Bad.
+For example, you'll get Path errors if you try to run this on any newer versions of node. To bypass this you can either:
+- Use node 0.9.5 and npm 1.x, but set the npm registry to use the nonsecure http://registry.npmjs.org/ version (what we're doing in prod)
+- Use a modern version of node/npm to install deps, and use something like [nvm](https://github.com/creationix/nvm) to install the old version of node and run the app with `<path>/<to>/.nvm/v0.9.5/bin/node app.js`
